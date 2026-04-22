@@ -99,7 +99,7 @@ Final Model:
 ## 🖥️ Deployment
 
 Built an interactive web app using:
-- :contentReference[oaicite:0]{index=0}  
+- : Streamlit
 
 Features:
 - User input form  
