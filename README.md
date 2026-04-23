@@ -1,113 +1,195 @@
-# 🏦 Customer Churn Prediction (End-to-End ML Project)
+# 🏦 Customer Churn Prediction System
 
-## 📌 Project Overview
-This project predicts whether a bank customer is likely to churn (leave the bank) using machine learning.
+## 📌 Overview
 
-The goal is to help businesses identify high-risk customers and take proactive retention actions.
+This project predicts whether a bank customer is likely to churn using machine learning.
+It goes beyond modeling by incorporating **statistical analysis, feature engineering, business impact evaluation, and model explainability**.
+
+The goal is to enable **data-driven customer retention strategies**.
 
 ---
 
 ## 🎯 Business Problem
-Customer churn is a major issue for banks and financial institutions.
 
-- Losing customers = loss of revenue  
-- Retaining customers = lower cost than acquiring new ones  
+Customer churn leads to significant revenue loss. Retaining existing customers is more cost-effective than acquiring new ones.
 
-👉 This model helps identify customers at risk of leaving so targeted actions can be taken.
+This project identifies **high-risk customers** and helps businesses:
 
----
-
-## 📊 Dataset
-- 10,000 customer records  
-- Features include:
-  - Credit Score
-  - Geography
-  - Age
-  - Balance
-  - Number of Products
-  - Activity Status
-  - Estimated Salary
-
-Target:
-- `Exited` → 1 (Churn), 0 (Retained)
+* Target retention campaigns efficiently
+* Reduce unnecessary marketing costs
+* Maximize revenue recovery
 
 ---
 
-## 🔍 Exploratory Data Analysis (EDA)
+## 🧠 Approach
 
-Key insights:
-- Older customers are more likely to churn  
-- Inactive customers churn ~2x more than active customers  
-- High balance customers show higher churn tendency  
+### 1. Exploratory Data Analysis (EDA)
 
----
-
-## 🧪 Statistical Analysis
-
-- **T-test** → Age is statistically significant  
-- **Chi-square test** → Activity strongly impacts churn  
-- **Confidence Interval** → Validated age trends  
+* Distribution analysis
+* Outlier detection
+* Feature relationships
 
 ---
 
-## ⚙️ Feature Engineering
+### 2. Statistical Validation
 
-Created meaningful features:
-- AgeGroup  
-- CreditScoreGroup  
-- BalanceSalaryRatio (log transformed)
-
----
-
-## 🤖 Model Development
-
-Models tested:
-- Logistic Regression  
-- Random Forest  
-
-Final Model:
-👉 **Random Forest (Tuned)**
+* T-test (Age vs Churn)
+* Chi-square test (Categorical features)
+* Confidence Intervals
 
 ---
 
-## 🔧 Model Optimization
+### 3. Feature Engineering
 
-- Hyperparameter tuning using GridSearchCV  
-- Optimized for **Recall** (important for churn detection)  
-- Threshold tuning applied  
-
----
-
-## 📈 Model Performance
-
-- Recall (Churn): **73%**  
-- ROC-AUC Score: **0.85**  
-- Lift (Top Decile): **~4.7**
-
-👉 Model identifies high-risk customers ~5x better than random selection
+* Age grouping
+* Credit score segmentation
+* Balance-to-salary ratio
+* Log transformations
 
 ---
 
-## 🧠 Key Business Insights
+### 4. Data Preprocessing
 
-- Inactive users are most likely to churn  
-- High-value customers (high balance) need retention focus  
-- Targeting top 20% high-risk customers can capture majority churn  
+* ColumnTransformer pipeline
+* Standard scaling (numerical features)
+* One-hot encoding (categorical features)
+
+---
+
+### 5. Modeling
+
+* Logistic Regression
+* Random Forest (final model)
+
+---
+
+### 6. Hyperparameter Tuning
+
+* GridSearchCV with cross-validation
+* Optimized for **recall (churn detection)**
+
+---
+
+### 7. Model Evaluation
+
+* Precision, Recall, F1-score
+* ROC-AUC Curve
+* Threshold tuning
+
+---
+
+### 8. Business Metrics
+
+* Lift analysis
+* Cost-benefit simulation
+
+---
+
+### 9. Model Explainability
+
+* SHAP (feature-level impact)
+* Global & individual predictions explained
+
+---
+
+## 📊 Results
+
+* **Recall:** ~73% (captures majority of churn customers)
+* **ROC-AUC:** 0.85 (strong classification ability)
+* **Lift:** ~4.7 (top customers are ~5x more likely to churn)
+
+---
+
+## 💰 Business Impact
+
+Using model-based targeting (top 20% high-risk customers):
+
+* **Revenue Saved:** ₹12.1M
+* **Retention Cost:** ₹2.0M
+* **Net Profit:** ₹10.1M
+
+Compared to random targeting:
+
+* **Profit:** ₹1.65M
+
+👉 **~6x improvement in profitability**
+
+---
+
+## 🔍 Key Insights
+
+* Inactive customers are highly likely to churn
+* Older customers show higher churn tendency
+* Customers with more products have increased churn risk
+* Behavioral factors outweigh demographic features
 
 ---
 
 ## 🖥️ Deployment
 
-Built an interactive web app using:
-- : Streamlit
+The model is deployed using:
 
-Features:
-- User input form  
-- Real-time prediction  
-- Risk classification (Low / Medium / High)  
-- Business recommendations  
+* **Streamlit** (interactive UI)
+* User inputs → churn prediction
+* Risk categorization (High / Medium / Low)
 
 ---
 
-## Author
-ANIMESH SANDHU
+## 🛠️ Tech Stack
+
+* Python
+* Pandas, NumPy
+* Scikit-learn
+* Matplotlib, Seaborn
+* SHAP
+* Streamlit
+
+---
+
+## 📂 Project Structure
+
+```
+├── data/
+├── notebook/
+├── model/
+├── app.py
+├── requirements.txt
+├── README.md
+```
+
+---
+
+## 🚀 How to Run
+
+```bash
+pip install -r requirements.txt
+streamlit run app.py
+```
+
+---
+
+## 💬 Conclusion
+
+This project demonstrates an end-to-end data science workflow, combining:
+
+* Statistical rigor
+* Machine learning
+* Business impact analysis
+* Model explainability
+
+It highlights how machine learning can be used not just for prediction, but for **real-world decision-making and profitability improvement**.
+
+---
+
+## 📌 Future Improvements
+
+* Model monitoring & retraining pipeline
+* Advanced models (XGBoost, LightGBM)
+* A/B testing for retention strategies
+* Integration with real-time data systems
+
+---
+
+## 👤 Author
+
+Animesh Sandhu
